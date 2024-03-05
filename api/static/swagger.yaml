@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: Flask Example API
+  version: 1.0.0
+  description: |-
+    Just an example of how to impliment Flask as an API in Python!
+    
+    
+    [Flask API Example Repository](https://github.com/sccity/flask-api-example)
+    
+    
+    [Santa Clara City](https://www.santaclarautah.gov)
+servers:
+  - url: /
+tags:
+  - name: Example
+    description: Example API Call
+paths:
+  /test:
+    get:
+      tags:
+        - Example
+      summary: Test Endpoint
+      description: Testing Endpoint
+      parameters:
+        - $ref: '#/components/parameters/text'
+      responses:
+        '200':
+          description: Success!
+components:
+  parameters:
+    text:
+      name: text
+      in: query
+      description: Just some text data
+      required: false
+      schema:
+        type: string
